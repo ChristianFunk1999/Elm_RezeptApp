@@ -1,17 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Main</title>
-  <style>body { padding: 0; margin: 0; }</style>
-</head>
-
-<body>
-
-<pre id="elm"></pre>
-
-<script>
-try {
 (function(scope){
 'use strict';
 
@@ -4384,7 +4370,7 @@ function _Browser_load(url)
 		}
 	}));
 }
-var $author$project$Main$init = {firstname: 'Chris', lastname: 'Funk', name: 'RezeptAPP', value: 77};
+var $author$project$Main$init = {value: 0};
 var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
 var $elm$core$Basics$LT = {$: 'LT'};
@@ -5195,78 +5181,10 @@ var $elm$browser$Browser$sandbox = function (impl) {
 			view: impl.view
 		});
 };
-var $elm$core$Debug$log = _Debug_log;
-var $author$project$Main$update = F2(
-	function (msg, model) {
-		var _v0 = A2($elm$core$Debug$log, 'lastname', model.lastname);
-		var _v1 = A2($elm$core$Debug$log, 'firstname', model.firstname);
-		if (msg.$ === 'Add') {
-			return _Utils_update(
-				model,
-				{firstname: 'Peter', value: 78});
-		} else {
-			var newText = msg.a;
-			var _v3 = A2($elm$core$Debug$log, 'entered Text', newText);
-			return model;
-		}
-	});
-var $author$project$Main$Add = {$: 'Add'};
-var $author$project$Main$TextChanged = function (a) {
-	return {$: 'TextChanged', a: a};
+var $author$project$Main$update = function (model) {
+	return model;
 };
-var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $elm$html$Html$Events$alwaysStop = function (x) {
-	return _Utils_Tuple2(x, true);
-};
-var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
-	return {$: 'MayStopPropagation', a: a};
-};
-var $elm$html$Html$Events$stopPropagationOn = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
-	});
-var $elm$json$Json$Decode$field = _Json_decodeField;
-var $elm$json$Json$Decode$at = F2(
-	function (fields, decoder) {
-		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
-	});
-var $elm$json$Json$Decode$string = _Json_decodeString;
-var $elm$html$Html$Events$targetValue = A2(
-	$elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	$elm$json$Json$Decode$string);
-var $elm$html$Html$Events$onInput = function (tagger) {
-	return A2(
-		$elm$html$Html$Events$stopPropagationOn,
-		'input',
-		A2(
-			$elm$json$Json$Decode$map,
-			$elm$html$Html$Events$alwaysStop,
-			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
-};
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $author$project$Main$view = function (model) {
@@ -5275,48 +5193,10 @@ var $author$project$Main$view = function (model) {
 		_List_Nil,
 		_List_fromArray(
 			[
-				$elm$html$Html$text(
-				$elm$core$String$fromInt(model.value)),
-				$elm$html$Html$text(model.name),
-				A2($elm$html$Html$div, _List_Nil, _List_Nil),
-				A2(
-				$elm$html$Html$input,
-				_List_fromArray(
-					[
-						$elm$html$Html$Events$onInput($author$project$Main$TextChanged)
-					]),
-				_List_Nil),
-				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Events$onClick($author$project$Main$Add)
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add')
-					]))
+				$elm$html$Html$text('RezeptAPP')
 			]));
 };
 var $author$project$Main$main = $elm$browser$Browser$sandbox(
 	{init: $author$project$Main$init, update: $author$project$Main$update, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
-
-  var app = Elm.Main.init({ node: document.getElementById("elm") });
-}
-catch (e)
-{
-  // display initialization errors (e.g. bad flags, infinite recursion)
-  var header = document.createElement("h1");
-  header.style.fontFamily = "monospace";
-  header.innerText = "Initialization Error";
-  var pre = document.getElementById("elm");
-  document.body.insertBefore(header, pre);
-  pre.innerText = e;
-  throw e;
-}
-</script>
-
-</body>
-</html>
